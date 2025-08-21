@@ -1,3 +1,7 @@
+SOURCEDIR=src
+BUILDDIR=build
+OBJDIR=$(BUILDDIR)/obj
+
 server: server.cpp
 	g++ server.cpp -g -Wall `pkg-config --cflags --libs opencv4` -o server.out
 
