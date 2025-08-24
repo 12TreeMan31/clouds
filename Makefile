@@ -2,11 +2,14 @@ SOURCEDIR=src
 BUILDDIR=build
 OBJDIR=$(BUILDDIR)/obj
 
-server: server.cpp
-	g++ server.cpp -g -Wall `pkg-config --cflags --libs opencv4` -o server.out
+server:
+	g++ $(SOURCEDIR)/server.cpp -g -Wall `pkg-config --cflags --libs opencv4` -o server.out
 
-client: client.cpp
-	g++ client.cpp -g -Wall `pkg-config --cflags --libs opencv4` -o clinet.out
+client:
+	g++ $(SOURCEDIR)/client.cpp -g -Wall -Wextra -Wconversion `pkg-config --cflags --libs opencv4` -o clinet.out
+
+station:
+	g++ $(SOURCEDIR)/station.cpp -g -Wall `pkg-config --cflags --libs libcamera`
 
 clean:
 	rm -r *.out
